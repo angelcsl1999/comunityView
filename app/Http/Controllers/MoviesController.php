@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use App\ViewModels\MoviesIndexViewModel;
+use App\ViewModels\MovieShowModel;
+
 class MoviesController extends Controller
 {
     
@@ -47,12 +49,13 @@ class MoviesController extends Controller
 
     public function show($id){
 
+        //taking data of hte specific movie from TMDB
         $movieData = Http::withToken(config('services.TMDB.token'))
                 ->get('https://api.themoviedb.org/3/movie/'.$id.'?append_to_response=credits,videos,images')
         ->json();
 
-        return view('showMovie',["movieData"=>$movieData,
-
-        ]);
+        $movieData=  new MovieShowModel($movieData);
+        dump($movieData->movie());
+        return view('showMovie',$movieData);
     }
 }
