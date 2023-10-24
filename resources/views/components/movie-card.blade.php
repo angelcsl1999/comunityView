@@ -19,7 +19,6 @@
             </div>
             <div class="text-gray-400 text-sm">
                {{$movie['genres'] }}
-              
             </div>
 
         </div>
