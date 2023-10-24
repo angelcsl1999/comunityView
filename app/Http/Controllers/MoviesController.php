@@ -17,7 +17,7 @@ class MoviesController extends Controller
         
         
         //take the 10 latest movie
-        $popularMovies=array_slice($popularMovies, 0, 10);
+        $popularMovies = array_slice($popularMovies, 0, 10);
 
         //nowPlayingMovies
 
@@ -27,7 +27,7 @@ class MoviesController extends Controller
         
         
         //genres
-        $genresArray=Http::withToken(config('services.TMDB.token'))
+        $genresArray = Http::withToken(config('services.TMDB.token'))
         ->get('https://api.themoviedb.org/3/genre/movie/list')
         ->json()["genres"];
 

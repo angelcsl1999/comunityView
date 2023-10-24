@@ -47,7 +47,7 @@
                 </div>
 
                 <!-- Trailer -->
-                @if(count($movieData['videos']['results']) > 0)
+                @if( count( $movieData['videos']['results']) > 0)
                 <div class="mt-12">
                     <a   class=" inline-flex items-center bg-orange-400 text-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-500 transition ease-in-out duration-150" href="https://youtube.com/watch?v={{$movieData['videos']['results'][0]['key']}}" target="_blank">
                         <svg class="w-6 fill-current" viewBox="0 0 24 24">
