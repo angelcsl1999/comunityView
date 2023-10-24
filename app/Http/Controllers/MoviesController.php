@@ -35,13 +35,6 @@ class MoviesController extends Controller
             return[$genre['id'] => $genre['name']];
         })->all();
 
-
-        // return view('indexMovies',
-        //                     ['popularMovies' => $popularMovies,
-        //                     'nowPlayingMovies' => $nowPlayingMovies,    
-        //                     'genres'=> $genres]);
-
-
         //Create the viewModel
         $moviesIndexViewModel = new MoviesIndexViewModel($popularMovies,$nowPlayingMovies,$genres);
 
