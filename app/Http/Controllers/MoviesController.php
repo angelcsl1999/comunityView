@@ -55,7 +55,7 @@ class MoviesController extends Controller
         ->json();
 
         $movieData=  new MovieShowModel($movieData);
-        dump($movieData->movie());
+        
         return view('showMovie',$movieData);
     }
 }
