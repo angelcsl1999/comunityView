@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Http;
-use Illuminate\Http\Request;
+
 use App\ViewModels\MoviesIndexViewModel;
 use App\ViewModels\MovieShowModel;
 
@@ -40,7 +40,7 @@ class MoviesController extends Controller
         //Create the viewModel
         $moviesIndexViewModel = new MoviesIndexViewModel($popularMovies,$nowPlayingMovies,$genres);
 
-        return view('indexMovies',$moviesIndexViewModel);
+        return view('movies.indexMovies',$moviesIndexViewModel);
 
 
     }
@@ -56,6 +56,6 @@ class MoviesController extends Controller
 
         $movieData=  new MovieShowModel($movieData);
         
-        return view('showMovie',$movieData);
+        return view('movies.showMovie',$movieData);
     }
 }
