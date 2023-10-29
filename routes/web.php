@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\ActorsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +23,13 @@ Route::get('/', function () {
 //Get movies Controller->General
 
 Route::get('/movies',[MoviesController::class, 'index'])->name('movies.index');
-//Pelicula en especifico
+//Show an specific movie
 Route::get('/movies/{movie}',[MoviesController::class, 'show'])->name('movies.show');
+
+
+
+Route::get('/actors',[ActorsController::class, 'index'])->name('actors.index');
+Route::get('/actors/page/{page}',[ActorsController::class, 'index'])->name('actors.index');
+//Show an specific movie
+Route::get('/actors/{actor}',[ActorsController::class, 'show'])->name('actors.show');
 
