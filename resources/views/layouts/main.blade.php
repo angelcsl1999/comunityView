@@ -19,7 +19,7 @@
                         <a href="{{url('/movies')}}" class="hover:text-gray-300">Peliculas</a>
                     </li>
                     <li class="md:ml-6 mt-2 md:mt-0">
-                        <a href="#" class="hover:text-gray-300">Series</a>
+                        <a href="{{ url('/TVShows') }}" class="hover:text-gray-300">Series</a>
                     </li>
                     <li class="md:ml-6 mt-2 md:mt-0">
                         <a href="{{ url('/actors') }}" class="hover:text-gray-300">Actores</a>

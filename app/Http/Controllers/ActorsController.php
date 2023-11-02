@@ -13,7 +13,7 @@ class ActorsController extends Controller
         $popularActors = Http::withToken(config('services.TMDB.token'))
             ->get('https://api.themoviedb.org/3/person/popular?page='.$page)
             ->json()['results'];
-        
+        dump($popularActors);
         $actorsIndexViewModel = new ActorsIndexViewModel($popularActors, $page);
         return view('actors.indexActors', $actorsIndexViewModel);
     }

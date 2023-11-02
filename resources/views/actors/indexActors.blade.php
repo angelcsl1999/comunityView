@@ -25,19 +25,6 @@
             <p class="infinite-scroll-last">End of content</p>
             <!--<p class="infinite-scroll-error">Error</p>-->
         </div>
-        {{-- 
-        <div class="flex justify-between mt-16 mb-10">
-           
-            --If i want to use different pages -->
-            @if($previous)
-                <a href="/actors/page/{{$previous}}"> Anterior </a>
-            @endif
-            @if($next)
-                <a href="/actors/page/{{$next}}"> Siguiente </a>
-            @endif 
-           
-        </div>
-         --}}
 
         
     </div>
@@ -46,7 +33,7 @@
 <!-- Infinite scroll script -->
 @section('scripts')
 
-<script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+<script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
 <script>
     let elem = document.querySelector('.grid');
     let infScroll = new InfiniteScroll( elem, {
