@@ -40,3 +40,8 @@ Route::get('/actors/{actor}',[ActorsController::class, 'show'])->name('actors.sh
 Route::get('/TVShows',[TVShowsController::class, 'index'])->name('TVShows.index');
 Route::get('/TVShows/{tv}',[TVShowsController::class, 'show'])->name('TVShows.show');
 
+
+//dev rol only
+Route::get('/phpmyinfo', function () {
+    phpinfo(); 
+})->name('phpmyinfo');
