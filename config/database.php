@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -34,7 +34,11 @@ return [
     */
 
     'connections' => [
-
+            'mongodb' => [
+                'driver' => 'mongodb',
+                'dsn' => env('DB_DSN'),
+                'database' => env('DB_DATABASE', 'homestead'),
+            ],
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DATABASE_URL'),
@@ -92,6 +96,7 @@ return [
             // 'encrypt' => env('DB_ENCRYPT', 'yes'),
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
+       
 
     ],
 

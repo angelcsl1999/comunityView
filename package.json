@@ -15,6 +15,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "infinite-scroll": "^4.0.1"
+        "infinite-scroll": "^4.0.1",
+        "mongodb": "^6.2.0"
     }
 }

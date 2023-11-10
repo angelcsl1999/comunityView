@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.12",
         "mongodb/laravel-mongodb": "^3.9",
+        "mongodb/mongodb": "^1.12",
         "nesbot/carbon": "^2.71",
         "spatie/laravel-view-models": "^1.5"
     },
