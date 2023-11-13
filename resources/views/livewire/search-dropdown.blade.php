@@ -1,4 +1,4 @@
-<div class="relative mt-2 md:mt-0">
+<div class="relative mt-2 md:mt-0 ">
                         
         <input wire:model.debounce.500ms="search" 
             type="text" 

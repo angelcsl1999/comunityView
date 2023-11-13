@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="movie-info border-b border-gray-800">
+    <div class="movie-info border-b border-gray-800 text-white">
         <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
             <div class="flex-none">
                 <img src="{{ $actor['profile_path'] }}" alt="profile image" class="w-76">
@@ -68,7 +68,7 @@
         </div>
     </div> <!-- end movie-info -->
 
-    <div class="credits border-b border-gray-800">
+    <div class="credits border-b border-gray-800 text-white">
         <div class="container mx-auto px-4 py-16">
             <h2 class="text-4xl font-semibold">Filmografía</h2>
             <ul class="list-disc leading-loose pl-5 mt-8">

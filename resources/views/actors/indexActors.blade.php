@@ -2,7 +2,7 @@
 
 @section('content')
     
-    <div class="container mx-auto px-4 pt-16">
+    <div class="container mx-auto px-4 pt-16 text-white">
         <div class="popular_actors">
             <h2 class="uppercase tracking-wider text-orange-400">Actores populares</h2>
             <!-- DIV Popular actors>-->

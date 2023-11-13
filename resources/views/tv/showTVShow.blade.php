@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="tv-info border-b border-gray-800">
+    <div class="tv-info border-b border-gray-800 text-white">
         <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
             <div class="flex-none">
                 <img src="{{ $tvshow['poster_path'] }}" alt="parasite" class="w-64 lg:w-96">
@@ -80,7 +80,7 @@
         </div>
     </div> <!-- end tv-info -->
 
-    <div class="tv-cast border-b border-gray-800">
+    <div class="tv-cast border-b border-gray-800 text-white">
         <div class="container mx-auto px-4 py-16">
             <h2 class="text-4xl font-semibold">Reparto</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
@@ -101,7 +101,7 @@
         </div>
     </div> <!-- end tv-cast -->
 
-    <div class="tv-images" x-data="{ isOpen: false, image: ''}">
+    <div class="tv-images text-white" x-data="{ isOpen: false, image: ''}">
         <div class="container mx-auto px-4 py-16">
             <h2 class="text-4xl font-semibold">Imágenes</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">

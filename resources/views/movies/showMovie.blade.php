@@ -2,7 +2,7 @@
 
 @section('content')
     <!--informacion peliculas y series> -->
-    <div class="movie-info border-b border-gray-800">
+    <div class="movie-info border-b border-gray-800 text-white">
         <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
             <img src="{{config('services.TMDB.img_rute').$movie['poster_path']}}" alt="Imagen pelicula" class="md:w-96">
             <div class="md:ml-24">
