@@ -5,7 +5,7 @@
 
     @if (session('status') == 'verification-link-sent')
         <div class="mb-4 font-medium text-sm text-green-600">
-            {{ __('Un nuevo link de verificación ha siddo enviado a su email') }}
+            {{ __('Un nuevo link de verificación ha sido enviado a su email') }}
         </div>
     @endif
 
@@ -24,7 +24,7 @@
             @csrf
 
             <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                {{ __('Log Out') }}
+                {{ __('Cerrar sesión') }}
             </button>
         </form>
     </div>
