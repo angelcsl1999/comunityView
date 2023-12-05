@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
+
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -36,6 +38,8 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -44,6 +48,10 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
+        //assign basic role
+        
+        $user->assignRole('basic');
+        
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);

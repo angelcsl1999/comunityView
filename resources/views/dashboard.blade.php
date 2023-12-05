@@ -6,7 +6,13 @@
                 <p>Logueado correctamente</p>   
             </div>
         </div>
-    </div>     
+        @role('basic')
+        I am a writer!
+        @else
+        I am not a writer...
+        @endrole
+    </div>  
+    
 @endsection
 
 
