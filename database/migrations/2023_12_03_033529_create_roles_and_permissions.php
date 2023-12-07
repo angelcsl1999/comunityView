@@ -32,7 +32,6 @@ return new class extends Migration
 
         $premiumRole->givePermissionTo($watchPremiumPermission);
 
-        $user->givePermissionTo('edit articles');
     }
 
     /**
