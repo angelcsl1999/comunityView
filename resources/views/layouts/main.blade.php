@@ -5,7 +5,10 @@
         <meta name="viewport" content="width-device-width, initial-scale=1">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <title>Insertar svg</title>
+        
+        <title> ComunityView</title>
+        <link rel="icon" type="image/x-icon" href=" {{asset('storage/images/ComunityView-logos_white.png') }}">
+        
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         @livewireStyles
     </head>
@@ -13,8 +16,10 @@
         <nav class="border-b border-gray-800 text-white">
             <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-6"> 
                 <ul class="flex flex-col md:flex-row items-center">
-                    <li>
-                        <a href="{{url('/')}}">INSERTAR FOTO AQUI</a>
+                    <li class="md:ml-16 mt-2 md:mt-0">
+                        <a href="{{url('/')}}">
+                            <img src=" {{asset('storage/images/ComunityView-logos_white.png') }}" class="object-fill h-48 w-70 text-white" alt="ComunityView">
+                        </a>
                     </li>
                     <!-- Menu principal -->
                     <li class="md:ml-16 mt-2 md:mt-0">

@@ -5,9 +5,9 @@
         <meta name="viewport" content="width-device-width, initial-scale=1">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <title>
-            Insertar svg
-        </title>
+        <title> ComunityView</title>
+        <link rel="icon" type="image/x-icon" href=" {{asset('storage/images/ComunityView-logos_white.png') }}">
+        
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         @livewireStyles
     </head>
