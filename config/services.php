@@ -1,5 +1,7 @@
 <?php
 
+use Stripe\Stripe;
+
 return [
 
     /*
@@ -34,6 +36,11 @@ return [
         'key' => env('TMDB_KEY_ID'),
         'token' => env('TMDB_TOKEN'),
         'img_rute'=> env('TMDB_IMG_RUTE')
+    ],
+    'stripe' => [
+        'model' => App\Models\User::class,
+        'key' => env('STRIPE_KEY'),
+        'secret' => env('STRIPE_SECRET'),
     ]
 
 ];

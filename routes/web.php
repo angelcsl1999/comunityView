@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\ActorsController;
 use App\Http\Controllers\TVShowsController;
+use App\Http\Controllers\Payment\SingleChargeController;
 
 
 
@@ -40,3 +41,11 @@ Route::get('/actors/{actor}',[ActorsController::class, 'show'])->name('actors.sh
 
 Route::get('/TVShows',[TVShowsController::class, 'index'])->name('TVShows.index');
 Route::get('/TVShows/{tv}',[TVShowsController::class, 'show'])->name('TVShows.show');
+
+
+//payments
+
+//singleCharge
+Route::get('/singlePayment', [SingleChargeController::class, 'index'])->name('payments.singleCharge.index');
+Route::get('/successfulPayment', [SingleChargeController::class, 'successfulPayment'])->name('payments.singleCharge.successfulPayment');
+Route::post('single-charge', [SingleChargeController::class, 'singleCharge'])->name('single.charge');

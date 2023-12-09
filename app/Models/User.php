@@ -11,12 +11,14 @@ use Jenssegers\Mongodb\Auth\User as Authenticatable;
 use Maklad\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
+use Laravel\Cashier\Billable;
 #implements or not mustVerifyemail
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable ;
     use HasRoles;
+    #stripe
+    use Billable;
     
     protected $guard_name = 'web';
     /**
