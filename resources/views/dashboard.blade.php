@@ -12,8 +12,6 @@
         I am not a writer...
         @endrole
     </div>  
-    
-        <img src=" {{asset('storage/images/ComunityView-logos_white.png') }}" class="w-76 text-white" alt="ComunityView">
 @endsection
 
 

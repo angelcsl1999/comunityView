@@ -6,6 +6,7 @@ use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\ActorsController;
 use App\Http\Controllers\TVShowsController;
 use App\Http\Controllers\Payment\SingleChargeController;
+use App\Http\Controllers\Payment\SubscriptionController;
 
 
 
@@ -49,3 +50,17 @@ Route::get('/TVShows/{tv}',[TVShowsController::class, 'show'])->name('TVShows.sh
 Route::get('/singlePayment', [SingleChargeController::class, 'index'])->name('payments.singleCharge.index');
 Route::get('/successfulPayment', [SingleChargeController::class, 'successfulPayment'])->name('payments.singleCharge.successfulPayment');
 Route::post('single-charge', [SingleChargeController::class, 'singleCharge'])->name('single.charge');
+
+//plans and subscriptions
+Route::middleware('auth')->group(function () {
+Route::get('plans/create', [SubscriptionController::class, 'showPlanForm'])->name('subscriptions.createPlan');
+Route::post('plans/store', [SubscriptionController::class, 'savePlan'])->name('subscriptions.store');
+});
+
+
+Route::get('plans', [SubscriptionController::class, 'allPlans'])->name('subscriptions.allPlans');
+Route::middleware('auth')->group(function () {
+Route::get('plans/checkout/{planId}', [SubscriptionController::class, 'checkout'])->name('subscriptions.checkout');
+Route::post('plans/process', [SubscriptionController::class, 'processPlan'])->name('subscriptions.process');
+Route::get('subscriptions/all', [SubscriptionController::class, 'allSubscriptions'])->name('subscriptions.all');
+});

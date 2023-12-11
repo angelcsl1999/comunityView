@@ -22,6 +22,8 @@ return new class extends Migration
         
         //only admin users can load premium content
         $loadPremiumPermission = Permission::create(['name' => 'load premium content']);
+        //only admin users can load premium content
+        $createPlans = Permission::create(['name' => 'create plans']);
         
         //only admin and premium user are able to watch premium content
         $watchPremiumPermission = Permission::create(['name' => 'watch premium content']);
@@ -29,7 +31,9 @@ return new class extends Migration
         //admin permisions
         $adminRole->givePermissionTo($loadPremiumPermission);
         $adminRole->givePermissionTo($watchPremiumPermission);
+        $adminRole->givePermissionTo($createPlans);
 
+        //premium permissions
         $premiumRole->givePermissionTo($watchPremiumPermission);
 
     }
