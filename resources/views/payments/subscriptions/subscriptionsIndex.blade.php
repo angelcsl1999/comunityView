@@ -1,79 +1,10 @@
 @extends('layouts.main')
 
-@section('styles')
-<style>
-    /* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-</style>
-@endsection
-
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container px-4 relative w-full md:w-6/12">
+    <div class="row justify-content-center bg-white mb-6 text-center shadow-lg rounded-lg relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
                 <div class="card-body">
                     @if (session('alert-success'))
                         <div class="alert alert-success" role="alert">
@@ -103,14 +34,17 @@ input:checked + .slider:before {
                                     <td>{{ $subscription->quantity }}</td>
                                     <td>{{ $subscription->created_at }}</td>
                                     <td>
-                                        <label class="switch">
+                                        <label class="relative inline-flex items-center cursor-pointer">
                                             @if ($subscription->ends_at == null)
-                                                <input type="checkbox" id="switcher" checked value="{{ $subscription->name }}">
+                                                <input type="checkbox" id="switcher"  checked
+                                                    class="sr-only peer"
+                                                    checked value="{{ $subscription->name }}">
                                             @else
-                                                <input type="checkbox" id="switcher" value="{{ $subscription->name }}">
+                                                <input type="checkbox" id="switcher"  class="sr-only peer"
+                                                    value="{{ $subscription->name }}">
                                             @endif
-
-                                            <span class="slider round"></span>
+                                            <div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-2 peer-focus:ring-grey-100 dark:peer-focus:ring-grey-100 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-orange-500"></div>
+                                            <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
                                         </label>
                                     </td>
                                 </tr>
@@ -118,7 +52,7 @@ input:checked + .slider:before {
                         </tbody>
                     </table>
                     @else
-                    <h4>You are not subscribed to any plan</h4>
+                    <h4>Usted no está suscrito a ningun plan</h4>
                     @endif
 
 

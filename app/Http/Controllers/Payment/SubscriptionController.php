@@ -107,7 +107,6 @@ class SubscriptionController extends Controller
         }
 
         $subscriptions = Subscription::where('user_id', auth()->id())->get();
-        var_dump(compact('subscriptions'));
         return view('payments.subscriptions.subscriptionsIndex', compact('subscriptions'));
     }
    
