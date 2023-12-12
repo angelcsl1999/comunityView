@@ -11,6 +11,9 @@
         @else
         I am not a writer...
         @endrole
+        {{if($request->user()->subscribedtoPlan('monthly','basic'){
+            return HOLAAAAAAAAAAAAA;
+        }}}
     </div>  
 @endsection
 

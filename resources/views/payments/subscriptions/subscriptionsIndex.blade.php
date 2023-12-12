@@ -1,11 +1,13 @@
 @extends('layouts.main')
 
+<?php use Carbon\Carbon; ?>
+
 @section('content')
-<div class="container px-4 relative w-full md:w-6/12">
-    <div class="row justify-content-center bg-white mb-6 text-center shadow-lg rounded-lg relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg">
-        <div class="col-md-8">
+<div class="sm:flex flex-col md:justify-center items-center ml-4 mr-4">
+    <div class="row justify-content-center bg-white mb-6 text-center shadow-lg rounded-lg relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg max-w-screen-sm">
+        <div class="col-md-8 ">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
                     @if (session('alert-success'))
                         <div class="alert alert-success" role="alert">
                             {{ session('alert-success') }}
@@ -13,26 +15,23 @@
                     @endif
 
                     @if (count($subscriptions) > 0)
-                    <h4><b>Your Subscriptions</b></h4>
-                    <table class="table">
+                    <h4><b>Tu suscripción</b></h4>
+                    <table class="w-full table-fixed">
                         <thead>
-                          <tr>
-                            <th scope="col">Plan Name</th>
-                            <th scope="col">Subs Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Trial Start At</th>
-                            <th>Auto Renew</th>
+                          <tr class="bg-gray-100">
+                            <th scope="col" class="w-1/4 py-4 px-6 text-left text-gray-600 uppercase">Precio</th>
+                            <th scope="col" class="w-1/4 py-4 px-6 text-left text-gray-600 uppercase">Fecha</th>
+                            <th scope="col" class="w-1/4 py-4 px-6 text-left text-gray-600 uppercase">Fecha Fin</th>
+                            <th scope="col" class="w-1/4 py-4 px-6 text-left text-gray-600 uppercase">Cancelar</th>
                           </tr>
                         </thead>
                         <tbody>
+                            
                             @foreach ($subscriptions as $subscription)
                                 <tr>
-                                    <td>{{ $subscription->plan->name }}</td>
-                                    <td>{{ $subscription->name }}</td>
                                     <td>{{ $subscription->plan->price }}</td>
-                                    <td>{{ $subscription->quantity }}</td>
-                                    <td>{{ $subscription->created_at }}</td>
+                                    <td>{{ Carbon::parse($subscription->created_at)->format('d M, Y') }}</td>
+                                    <td>{{ Carbon::parse($subscription->ends_at)->format('d M, Y') }}</td>
                                     <td>
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             @if ($subscription->ends_at == null)
@@ -51,12 +50,14 @@
                             @endforeach
                         </tbody>
                     </table>
+                   
                     @else
                     <h4>Usted no está suscrito a ningun plan</h4>
                     @endif
 
 
                 </div>
+                <br>
             </div>
         </div>
     </div>
