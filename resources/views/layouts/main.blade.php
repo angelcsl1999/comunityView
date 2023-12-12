@@ -31,6 +31,18 @@
                     <li class="md:ml-6 mt-2 md:mt-0">
                         <a href="{{ url('/actors') }}" class="hover:text-gray-300">Actores</a>
                     </li>
+                    @auth 
+                        @if(!Auth::user()->hasRole('premium'))
+                        <li class="md:ml-6 mt-2 md:mt-0">
+                            <a href="{{ url('/plans') }}" class="hover:text-gray-300">Planes</a>
+                        </li>
+                        @else
+                        <li class="md:ml-6 mt-2 md:mt-0">
+                            <a href="{{ url('/premium') }}" class="hover:text-gray-300">Contenido Premium</a>
+                        </li>
+
+                        @endif
+                    @endauth
                 </ul>
                 <!--  Perfil y barra de busqueda -->
                 <div class="flex flex-col md:flex-row items-center">
@@ -60,7 +72,16 @@
                                                 <x-dropdown-link :href="route('profile.edit')">
                                                     {{ __('Perfil') }}
                                                 </x-dropdown-link>
-                        
+                                                @if(Auth::user()->hasRole('premium'))
+                                                <x-dropdown-link :href="route('subscriptions.all')">
+                                                    {{ __('Mi subscripcion') }}
+                                                </x-dropdown-link>
+                                                @else
+                                                <x-dropdown-link :href="route('subscriptions.allPlans')">
+                                                    {{ __('Planes') }}
+                                                </x-dropdown-link>
+                                                @endif
+
                                                 <!-- Authentication -->
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf

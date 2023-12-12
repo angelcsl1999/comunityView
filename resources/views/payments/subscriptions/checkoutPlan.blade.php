@@ -26,7 +26,7 @@
 
 
 @section('content')
-<div class="container py-12">
+<div class="container py-12 ml-16">
     <div class="row justify-content-center max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
         <div class="col-md-8 p-4 sm:p-8  bg-white shadow sm:rounded-lg">
             <div class="card">
@@ -44,8 +44,8 @@
                         @csrf
                         <span>Tu subscripcion es 
                             <b>{{(strtoupper($plan->name)=="YEARLY")?"Anual":"Mensual"}}</b> 
-                        </span> <span style="float: right"> {{ $plan->price }}€</span> <br>
-
+                        </span> <span style="float: right">Precio:  {{ $plan->price }}€</span> <br>
+                        @if(!Auth::user()->hasRole('premium'))
                         <input type="hidden" name="plan_id" value="{{ $plan->plan_id }}">
                         <label for="card-holder-name">Titular de la tarjeta</label> <br>
                         <input id="card-holder-name" type="text" class="form-control mb-4 mt-2">
@@ -66,14 +66,25 @@
                         </div>
                         @endif
                         <br>
+                        
                         <div class="form-group text-center">
                             <button  id="card-button" data-secret="{{ $intent->client_secret }}" 
                                 class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
                                 Proceder al pago
                             </button>
                         </div>
+                        
                     </form>
-
+                    @else
+                    </form>
+                    <div class="flex items-center justify-center mt-4">
+                        <a href="{{url('premium')}}" > 
+                        <button  id="card-button" 
+                        class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 mt-2">
+                        Disfrutar de contenido premium
+                        </button>
+                    </div>
+                    @endif
 
                 </div>
             </div>

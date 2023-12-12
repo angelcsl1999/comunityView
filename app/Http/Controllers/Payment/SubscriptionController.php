@@ -95,6 +95,10 @@ class SubscriptionController extends Controller
                 'error' => 'Unable to create subscription due to this issue '. $ex->getMessage()
             ]);
         }
+        
+        if($user->subscribed() && !$user->hasRole('premium')){
+            $user->assignRole('premium');
+        }
 
         $request->session()->flash('alert-success', 'Ya estas suscrito a este plan!');
         return to_route('subscriptions.checkout', $plan);
@@ -107,7 +111,9 @@ class SubscriptionController extends Controller
         }
 
         $subscriptions = Subscription::where('user_id', auth()->id())->get();
-        return view('payments.subscriptions.subscriptionsIndex', compact('subscriptions'));
+        $plan = ModelsPlan::where('plan_id', $subscriptions->first()->stripe_price)->first();
+
+        return view('payments.subscriptions.subscriptionsIndex', compact('subscriptions','plan'));
     }
    
     public function cancelSubscriptions(Request $request)

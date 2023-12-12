@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div class="sm:flex flex-col md:justify-center items-center">
+    <div class="sm:flex flex-col md:justify-center items-center ml-4 mr-4">
             
         @if($monthly)
             <div class="px-4 relative w-full md:w-6/12">

@@ -31,7 +31,7 @@
             </label>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="flex items-center justify-center mt-4">
             @if (Route::has('password.request'))
                 <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                     {{ __('¿Has olvidado tu contraseña?') }}
@@ -42,5 +42,15 @@
                 {{ __('Iniciar sesión') }}
             </x-primary-button>
         </div>
+         
     </form>
+    <div class="flex items-center justify-center mt-4">
+        <a href="{{url('register')}}" > 
+            <button  id="card-button" 
+                class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                Registrase
+            </button>
+    </div>   
+
+
 </x-guest-layout>

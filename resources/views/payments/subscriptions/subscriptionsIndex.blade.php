@@ -3,7 +3,7 @@
 <?php use Carbon\Carbon; ?>
 
 @section('content')
-<div class="sm:flex flex-col md:justify-center items-center ml-4 mr-4">
+<div class="sm:flex flex-col  items-center ml-4 mr-4">
     <div class="row justify-content-center bg-white mb-6 text-center shadow-lg rounded-lg relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg max-w-screen-sm">
         <div class="col-md-8 ">
             <div class="card">
@@ -22,14 +22,14 @@
                             <th scope="col" class="w-1/4 py-4 px-6 text-left text-gray-600 uppercase">Precio</th>
                             <th scope="col" class="w-1/4 py-4 px-6 text-left text-gray-600 uppercase">Fecha</th>
                             <th scope="col" class="w-1/4 py-4 px-6 text-left text-gray-600 uppercase">Fecha Fin</th>
-                            <th scope="col" class="w-1/4 py-4 px-6 text-left text-gray-600 uppercase">Cancelar</th>
+                            <th scope="col" class="w-1/4 py-4 px-6 text-left text-gray-600 uppercase">Renovar</th>
                           </tr>
                         </thead>
                         <tbody>
                             
                             @foreach ($subscriptions as $subscription)
                                 <tr>
-                                    <td>{{ $subscription->plan->price }}</td>
+                                    <td>{{ $plan->price}}</td>
                                     <td>{{ Carbon::parse($subscription->created_at)->format('d M, Y') }}</td>
                                     <td>{{ Carbon::parse($subscription->ends_at)->format('d M, Y') }}</td>
                                     <td>

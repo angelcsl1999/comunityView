@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\ActorsController;
 use App\Http\Controllers\TVShowsController;
+use App\Http\Controllers\DeniedController;
+use App\Http\Controllers\Premium\PremiumController;
 use App\Http\Controllers\Payment\SingleChargeController;
 use App\Http\Controllers\Payment\SubscriptionController;
 
@@ -66,3 +68,16 @@ Route::get('subscriptions/all', [SubscriptionController::class, 'allSubscription
 Route::get('subscriptions/cancel', [SubscriptionController::class, 'cancelSubscriptions'])->name('subscriptions.cancel');
 Route::get('subscriptions/resume', [SubscriptionController::class, 'resumeSubscriptions'])->name('subscriptions.resume');
 });
+
+
+
+//premium content
+
+Route::middleware('auth')->group(function () {
+    Route::get('premium', [PremiumController::class, 'index'])->name('premium.index');
+});
+
+
+
+//denied
+Route::get('permissionDenied',[DeniedController::class, 'permissionDenied'])->name('permissionDenied');

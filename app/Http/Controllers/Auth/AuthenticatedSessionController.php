@@ -29,6 +29,16 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        $user = auth()->user();
+
+        //check premium role
+
+        if($user->subscribed() && !$user->hasRole('premium')){
+            $user->assignRole('premium');
+        }else if(!$user->subscribed() && $user->hasRole('premium')){
+            $user->removeRole('premium');
+        };
+
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 

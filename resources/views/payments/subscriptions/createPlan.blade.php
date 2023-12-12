@@ -2,7 +2,7 @@
 
 
 @section('content')
-  <div class="container py-12">
+  <div class="container py-12 ml-4 mr-4  md:justify-center">
       <div class="row justify-content-center max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
           <div class="col-md-8 p-4 sm:p-8  bg-white shadow sm:rounded-lg">
               <div class="card ">
