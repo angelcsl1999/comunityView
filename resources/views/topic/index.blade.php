@@ -23,7 +23,7 @@
                     <div class="mt-2">
                         <a href="{{route('topic.detail',$topic["topic_id"]) }}">
                         
-                        <div class=" text-white font-medium text-2xl mt-1" > 
+                        <div class=" text-white text-center font-medium text-2xl mt-1  dark:bg-gray-700 rounded-md" > 
                             <label for="topic_subject" class="block font-medium text-sm text-gray-100">{{$topic['topic_category_name']}}</label>
                             <br>
                             <p>{{ $topic['topic_subject'] }}</p>
