@@ -42,6 +42,9 @@
                         </li>
 
                         @endif
+                        <li class="md:ml-6 mt-2 md:mt-0">
+                            <a href="{{ url('/topic/index') }}" class="hover:text-gray-300">Foros</a>
+                        </li>
                     @endauth
                 </ul>
                 <!--  Perfil y barra de busqueda -->
