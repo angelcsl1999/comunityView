@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="sm:flex flex-col  items-center ml-4 mr-4">
-    <div class="row justify-content-center mb-6 text-center relative flex flex-col min-w-0 break-words w-full mb-6 max-w-screen-sm">
+    <div class="row justify-content-center mb-6 text-center relative flex flex-col min-w-0 break-words w-full max-w-screen-sm">
         <div class="col-md-8 pt-4">
-            <h2 class="mt-2 mb-2 text-orange-400">{{ $topic->topic_subject }}</h2>
+            <h2 class="mt-2 mb-2 text-orange-400 font-bold text-lg">{{ $topic->topic_subject }}</h2>
 
                 @foreach($posts as $post)
                     <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
