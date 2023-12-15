@@ -66,11 +66,13 @@
                         <div class="head text-3xl font-bold mb-4">Contenido Premium</div>
                         <div class="long-text text-lg">Siendo premium podrás de disfrutar peliculas y contenido especial dieseñado por nuestros creadores.</div> 
                         <br>
-                        @if(!Auth::user()->hasRole('premium'))
-                        <a href="{{url('/plans')}}"> 
+                        @Auth
+                            @if(!Auth::user()->hasRole('premium'))
+                            <a href="{{url('/plans')}}"> 
+                            @endif
                         @else
-                        <a href="{{url('/premium')}}"> 
-                        @endif  
+                            <a href="{{url('/premium')}}"> 
+                        @endauth 
                             <div class="long-text text-lg font-bold">¡Quiero ver contenido exclusivo!</div> 
                         </a>
                     </div>
@@ -87,7 +89,7 @@
                     <div class="sub w-full my-auto">
                         <div class="head text-3xl font-bold mb-4">Foros</div>
                         <div class="long-text text-lg">Aqui nuestra comunidad comenta las ultimas novedades, con diferentes temáticas, aportando ideas, pensamientos e incluso hablar directamente con nuestros creadores vips</div> 
-                        <a href="{{url('/foros')}}"> 
+                        <a href="{{url('/topic/index')}}"> 
                             <div class="long-text text-lg font-bold">¡Quiero unirme a la conversación!</div> 
                         </a>
                         <div class="goto border border-gray-400 text-sm font-semibold inline-block mt-2 p-1 px-2 rounded cursor-pointer" action="goto" goto="0">Volver al inicio</div>
