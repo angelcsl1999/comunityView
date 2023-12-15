@@ -23,7 +23,7 @@
                     </li>
                     <!-- Menu principal -->
                     <li class="md:ml-16 mt-2 md:mt-0">
-                        <a href="{{url('/movies')}}" class="hover:text-gray-300">Peliculas</a>
+                        <a href="{{url('/movies')}}" class="hover:text-gray-300">Películas</a>
                     </li>
                     <li class="md:ml-6 mt-2 md:mt-0">
                         <a href="{{ url('/TVShows') }}" class="hover:text-gray-300">Series</a>
