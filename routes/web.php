@@ -10,7 +10,7 @@ use App\Http\Controllers\Premium\PremiumController;
 use App\Http\Controllers\Payment\SingleChargeController;
 use App\Http\Controllers\Payment\SubscriptionController;
 
-
+use App\Http\Controllers\Forums\TopicController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -81,3 +81,15 @@ Route::middleware('auth')->group(function () {
 
 //denied
 Route::get('permissionDenied',[DeniedController::class, 'permissionDenied'])->name('permissionDenied');
+
+//topics
+
+Route::middleware('auth')->group(function () {
+Route::get('/topic/index', [TopicController::class,'index'])->name('topic.index');
+
+Route::get('/topic/create',  [TopicController::class,'create'])->name('topic.create');
+Route::post('/topic/save',  [TopicController::class,'save'])->name('topic.save');
+
+Route::get('/topic/detail/{id}', [TopicController::class,'detail'])->name('topic.detail');
+Route::post('/reply/save',  [TopicController::class,'replySave'])->name('reply.save');
+});
