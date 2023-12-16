@@ -5,6 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 //roles
 use Maklad\Permission\Models\Role;
 use Maklad\Permission\Models\Permission;
+use App\Models\User;
 use Jenssegers\Mongodb\Auth\User as Authenticatable;
 return new class extends Migration
 {
@@ -36,6 +37,17 @@ return new class extends Migration
         //premium permissions
         $premiumRole->givePermissionTo($watchPremiumPermission);
 
+        //creo un usuario administrador
+
+        $user = User::create([
+            'name' => "admin1",
+            'email' => "admin1@gmail.com",
+            'password' => Hash::make("admin"),
+        ]);
+
+        
+        $user->assignRole('premium');
+        $user->assignRole('admin');
     }
 
     /**

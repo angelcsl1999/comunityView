@@ -38,7 +38,7 @@
                         </li>
                         @else
                         <li class="md:ml-6 mt-2 md:mt-0">
-                            <a href="{{ url('/premium') }}" class="hover:text-gray-300">Contenido Premium</a>
+                            <a href="{{ url('/videosPremium/index') }}" class="hover:text-gray-300">Contenido Premium</a>
                         </li>
 
                         @endif
@@ -85,6 +85,11 @@
                                                 </x-dropdown-link>
                                                 @endif
 
+                                                @if(Auth::user()->hasRole('admin'))
+                                                    <x-dropdown-link :href="route('admin.index')">
+                                                        {{ __('Administrador') }}
+                                                    </x-dropdown-link>
+                                                @endif
                                                 <!-- Authentication -->
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
