@@ -39,10 +39,10 @@
                     <input type="text" class="form-control" id="topic_message" name="topic_message">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group pb-2">
                     <button style="cursor:pointer" type="submit" 
                         class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
-                        Submit</button>
+                        Crear</button>
                 </div>
 
                 @if ($errors->any())
