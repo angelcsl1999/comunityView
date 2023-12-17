@@ -39,7 +39,7 @@
                         <div class="mt-12">
                             <button
                                 @click="isOpen = true"
-                                class="flex inline-flex items-center bg-orange-500 text-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150"
+                                class="flex items-center bg-orange-500 text-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150"
                             >
                             <svg class="w-6 fill-current" viewBox="0 0 24 24">
                                 <path d="M0,12A12,12,0,1,0,12,0,12.013,12.013,0,0,0,0,12ZM11.6,6.269l5.154,5.087a.9.9,0,0,1,0,1.288L11.6,17.731a.924.924,0,0,1-1.575-.644V6.913A.924.924,0,0,1,11.6,6.269Z"> 

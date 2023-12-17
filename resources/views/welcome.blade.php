@@ -47,7 +47,7 @@
                                 <div class="long-text text-lg font-bold">¡Quiero saber los ultimos estrenos!</div> 
                             </a>
                         <br>
-                        <a href="{{url('/movies')}}"> 
+                        <a href="{{url('/TVShows')}}"> 
                             <div class="long-text text-lg font-bold">¡Quiero ver las series mas populares!</div> 
                         </a>
                     </div>
@@ -66,13 +66,16 @@
                         <div class="head text-3xl font-bold mb-4">Contenido Premium</div>
                         <div class="long-text text-lg">Siendo premium podrás de disfrutar peliculas y contenido especial dieseñado por nuestros creadores.</div> 
                         <br>
-                        @Auth
+                        @auth
                             @if(!Auth::user()->hasRole('premium'))
                             <a href="{{url('/plans')}}"> 
+                           
+                            @else
+                            <a href="{{url('/videosPremium/index')}}"> 
                             @endif
                         @else
-                            <a href="{{url('/premium')}}"> 
-                        @endauth 
+                             <a href="{{url('/login')}}"> 
+                        @endauth
                             <div class="long-text text-lg font-bold">¡Quiero ver contenido exclusivo!</div> 
                         </a>
                     </div>

@@ -74,14 +74,6 @@ Route::get('subscriptions/resume', [SubscriptionController::class, 'resumeSubscr
 
 
 
-//premium content
-
-Route::middleware('auth')->group(function () {
-    Route::get('premium', [PremiumController::class, 'index'])->name('premium.index');
-});
-
-
-
 //denied
 Route::get('permissionDenied',[DeniedController::class, 'permissionDenied'])->name('permissionDenied');
 

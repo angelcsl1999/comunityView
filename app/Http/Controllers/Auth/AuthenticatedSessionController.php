@@ -35,7 +35,7 @@ class AuthenticatedSessionController extends Controller
 
         if($user->subscribed() && !$user->hasRole('premium')){
             $user->assignRole('premium');
-        }else if(!$user->subscribed() && $user->hasRole('premium')){
+        }else if(!$user->subscribed() && $user->hasRole('premium') && !$user->hasRole('premium')){
             $user->removeRole('premium');
         };
 

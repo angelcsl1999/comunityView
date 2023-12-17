@@ -26,7 +26,7 @@
                 <form action="{{ route('comments.store') }}" method="POST">
                     @csrf
                     <input type="hidden" name="video_id" value="{{ $video->id }}">
-                    <textarea name="body" placeholder="Añade un comentario" 
+                    <textarea name="body" placeholder="Danos tu opinión" 
                     class="flex flex-col w-full max-w-[320px] leading-1.5 p-4
                      border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700 text-white placeholder-white"
                     ></textarea>
@@ -34,11 +34,6 @@
                         Comentar</button>
                 </form>
 
-                @if ($comments->isEmpty())
-                    <p>¡Sé el primero en comentar!</p>
-                @else
-            
-                @endif
                 
         </div>
 @endsection
