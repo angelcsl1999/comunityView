@@ -75,7 +75,7 @@
                                                 <x-dropdown-link :href="route('profile.edit')">
                                                     {{ __('Perfil') }}
                                                 </x-dropdown-link>
-                                                @if(Auth::user()->hasRole('premium'))
+                                                @if(Auth::user()->hasRole('premium') && !Auth::user()->hasRole('admin'))
                                                 <x-dropdown-link :href="route('subscriptions.all')">
                                                     {{ __('Mi subscripcion') }}
                                                 </x-dropdown-link>
