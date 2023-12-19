@@ -8,8 +8,8 @@
     @else
     <div class="container py-12 md:ml-4 md:mr-4  md:justify-center">
         <div class="row justify-content-center max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <h1 class="text-orange-500 font-bold">Lista de Videos</h1>
-            <table class="table-auto bg-white border-separate">
+            <h1 class="text-orange-500 font-bold ">Lista de Videos</h1>
+            <table class="table-auto bg-white border-separate  ">
                 <thead>
                     <tr>
                         <th class="pl-4">Título</th>
@@ -21,7 +21,7 @@
                 </thead>
                 <tbody>
                     @foreach ($videos as $video)
-                        <tr class="pb-4">
+                        <tr class="mb-8">
                             <td class="pl-4">{{ $video->title }}</td>
                             <td class="pl-4 hidden md:table-cell">{{ $video->description }}</td>
                             <td class="pl-4 hidden sm:table-cell">{{ $video->_id }}</td>

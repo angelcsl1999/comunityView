@@ -45,8 +45,8 @@ class VideosPremiumController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'video' => 'required|mimes:mp4,mov,avi|max:604800',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:20480',
+            'video' => 'required|mimes:mp4,mov,avi|max:704800',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:20480',
         ]);
 
         // load video to the server
