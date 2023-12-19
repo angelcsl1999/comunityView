@@ -13,6 +13,18 @@
 
                 {{ csrf_field() }}
 
+                @if ($errors->any())
+                    <div class="alert alert-danger text-red-500">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+
+                @endif
+
+
                 <div class="form-group mb-4">
                     <x-input-label for="topic_cat" :value="__('Categoría')" class="mt-2"/>
                     <select name="topic_cat">            
@@ -45,17 +57,7 @@
                         Crear</button>
                 </div>
 
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            {{var_dump($errors->all())}}
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-
-                @endif
+                
 
             </form>
         </div>

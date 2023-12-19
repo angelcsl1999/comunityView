@@ -33,8 +33,6 @@ class TopicController extends Controller
         $this->validate(request(), [
             'topic_cat' => 'required|max:255',
             'topic_subject' => 'required|max:255|',
-        ],[
-            'required' => 'Faltan campos',
         ]);
        
         $topic = Topic::create([
