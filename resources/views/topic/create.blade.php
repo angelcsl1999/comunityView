@@ -48,8 +48,9 @@
 
                 <div class="form-group mb-4">
                     <x-input-label for="topic_message" :value="__('Primer Mensaje')" />
-                    <input type="text" class="form-control" id="topic_message" name="topic_message">
-                </div>
+                    <textarea rows="5" cols="60" type="text-area" class="form-control" id="topic_message" name="topic_message">
+                    </textarea>
+                    </div>
 
                 <div class="form-group pb-2">
                     <button style="cursor:pointer" type="submit" 

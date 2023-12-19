@@ -33,8 +33,9 @@ class TopicController extends Controller
         $this->validate(request(), [
             'topic_cat' => 'required|max:255',
             'topic_subject' => 'required|max:255|',
+            'topic_message' =>'required'
         ]);
-       
+
         $topic = Topic::create([
 
                 'topic_cat' => request()->input('topic_cat'),
@@ -103,7 +104,7 @@ class TopicController extends Controller
 
                 'post_by' => $user->name,
 
-                'post_content' => $post->post_content
+                'post_content' => $this->findLinks($post->post_content)
 
             );
 
@@ -131,6 +132,17 @@ class TopicController extends Controller
 
             ->with('success','Reply is added successfully.');
 
+    }
+
+    public function findLinks($text)
+    {
+        // regular expresion
+        $regex = '/(https?:\/\/[^\s]+)/';
+
+        // change link
+        $textClickable = preg_replace($regex, '<a href="$1" target="_blank">$1</a>', $text);
+
+        return $textClickable;
     }
 
 }

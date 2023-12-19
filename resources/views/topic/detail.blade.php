@@ -11,16 +11,12 @@
                         <div class="flex items-center space-x-2 rtl:space-x-reverse">
                            <span class="text-sm font-semibold text-white dark:text-white">{{$post['post_by']}}</span>
                         </div>
-                        <p class="text-sm font-normal py-2.5 text-white dark:text-white">{{ $post['post_content'] }}</p>
+                        <p class="text-sm font-normal py-2.5 text-white dark:text-white">{!! $post['post_content'] !!}</p>
                      </div>
                      <br>
 
                 @endforeach
-
-           
-
-            
-
+               
                 <form method="POST" action="{{ route('reply.save') }}">
 
                     {{ csrf_field() }}
