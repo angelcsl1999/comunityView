@@ -97,6 +97,7 @@ Route::get('videosPremium/create', [VideosPremiumController::class, 'create'])->
 Route::post('videosPremium', [VideosPremiumController::class, 'store'])->name('videos.store');
 Route::get('/videosPremium/{id}', [VideosPremiumController::class, 'show'])->name('videos.showDetails');
 Route::delete('/videosPremium/{id}', [VideosPremiumController::class, 'deleteVideo'])->name('videos.delete');
+Route::get('/videosPremium/{id}/download-comments',[ VideosPremiumController::class,'downloadComments'])->name('downloadComments');
 });
 
 

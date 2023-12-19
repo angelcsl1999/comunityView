@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Videos\Video;
 use App\Models\Videos\Comment;
+use Illuminate\Http\Response;
 
 class VideosPremiumController extends Controller
 {
@@ -73,9 +74,9 @@ class VideosPremiumController extends Controller
             return redirect('/permissionDenied');
         }
         $video = Video::findOrFail($id); 
-        $comments = Comment::where('video_id', $id)->get(); 
+        
 
-        return view('videosPremium.show', compact('video', 'comments'));
+        return view('videosPremium.show', compact('video'));
     }
 
     public function deleteVideo($id)
@@ -91,4 +92,37 @@ class VideosPremiumController extends Controller
 
     return redirect()->back()->with('success', '¡Video eliminado exitosamente!');
     }
+
+    public function downloadComments($id)
+    {
+
+        $user = auth()->user();
+        if(!$user->hasRole('admin')){
+                return redirect('/permissionDenied');
+        }
+
+        $video = Video::find($id);
+        $comments = Comment::where('video_id',$id)->get();
+
+        if($video) {
+           
+            $filename = 'comments_video_' . $video->id . $video->name .'.txt';
+          
+            if(!$comments->isEmpty()){
+                foreach($comments as $comment){
+                 echo "\n"."-".$comment->body."\n";
+                }
+            }else{
+                echo "No hay comentarios";
+            }
+            $response = new Response();
+            $response->header('Content-Type', 'text/plain');
+            $response->header('Content-Disposition', 'attachment; filename="' . $filename . '"');
+
+            return $response;
+        }
+
+        abort(404, 'Video not found');
+    }
+
 }
