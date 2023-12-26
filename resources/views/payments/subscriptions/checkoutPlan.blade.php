@@ -78,7 +78,7 @@
                     @else
                     </form>
                     <div class="flex items-center justify-center mt-4">
-                        <a href="{{url('premium')}}" > 
+                        <a href="{{url('/videosPremium/index')}}" > 
                         <button  id="card-button" 
                         class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 mt-2">
                         Disfrutar de contenido premium

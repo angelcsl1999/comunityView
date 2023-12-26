@@ -6,11 +6,14 @@ use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\ActorsController;
 use App\Http\Controllers\TVShowsController;
 use App\Http\Controllers\DeniedController;
+use App\Http\Controllers\VideoCommentController;
 use App\Http\Controllers\Premium\PremiumController;
 use App\Http\Controllers\Payment\SingleChargeController;
 use App\Http\Controllers\Payment\SubscriptionController;
 
 use App\Http\Controllers\Forums\TopicController;
+use App\Http\Controllers\Admin\AdminsController;
+use App\Http\Controllers\Premium\VideosPremiumController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -59,7 +62,7 @@ Route::get('plans/create', [SubscriptionController::class, 'showPlanForm'])->nam
 Route::post('plans/store', [SubscriptionController::class, 'savePlan'])->name('subscriptions.store');
 });
 
-
+//plans
 Route::get('plans', [SubscriptionController::class, 'allPlans'])->name('subscriptions.allPlans');
 Route::middleware('auth')->group(function () {
 Route::get('plans/checkout/{planId}', [SubscriptionController::class, 'checkout'])->name('subscriptions.checkout');
@@ -67,14 +70,6 @@ Route::post('plans/process', [SubscriptionController::class, 'processPlan'])->na
 Route::get('subscriptions/all', [SubscriptionController::class, 'allSubscriptions'])->name('subscriptions.all');
 Route::get('subscriptions/cancel', [SubscriptionController::class, 'cancelSubscriptions'])->name('subscriptions.cancel');
 Route::get('subscriptions/resume', [SubscriptionController::class, 'resumeSubscriptions'])->name('subscriptions.resume');
-});
-
-
-
-//premium content
-
-Route::middleware('auth')->group(function () {
-    Route::get('premium', [PremiumController::class, 'index'])->name('premium.index');
 });
 
 
@@ -92,4 +87,27 @@ Route::post('/topic/save',  [TopicController::class,'save'])->name('topic.save')
 
 Route::get('/topic/detail/{id}', [TopicController::class,'detail'])->name('topic.detail');
 Route::post('/reply/save',  [TopicController::class,'replySave'])->name('reply.save');
+});
+
+
+//videos premium
+Route::middleware('auth')->group(function () {
+Route::get('videosPremium/index', [VideosPremiumController::class, 'index'])->name('videos.index');
+Route::get('videosPremium/create', [VideosPremiumController::class, 'create'])->name('videos.create');
+Route::post('videosPremium', [VideosPremiumController::class, 'store'])->name('videos.store');
+Route::get('/videosPremium/{id}', [VideosPremiumController::class, 'show'])->name('videos.showDetails');
+Route::delete('/videosPremium/{id}', [VideosPremiumController::class, 'deleteVideo'])->name('videos.delete');
+Route::get('/videosPremium/{id}/download-comments',[ VideosPremiumController::class,'downloadComments'])->name('downloadComments');
+});
+
+
+//comments
+Route::middleware('auth')->group(function () {
+Route::post('/comments', [VideoCommentController::class, 'store'])->name('comments.store');
+});
+
+//admin
+Route::middleware('auth')->group(function () {
+Route::get('admin/index', [AdminsController::class, 'index'])->name('admin.index');
+Route::get('admin/videos', [AdminsController::class, 'adminVideos'])->name('admin.adminVideos');
 });

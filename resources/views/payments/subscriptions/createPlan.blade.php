@@ -16,7 +16,7 @@
                       @endif
 
 
-                      <form method="POST" class="grid grid-cols-1 md:grid-cols-3 gap-3" action="{{ route('plans.store') }}">
+                      <form method="POST" class="grid grid-cols-1 md:grid-cols-3 gap-3" action="{{ route('subscriptions.store') }}">
                           @csrf
                           <div class="form-group mb-4 mt-2">
                             <div>

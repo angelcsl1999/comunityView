@@ -38,7 +38,7 @@
                         </li>
                         @else
                         <li class="md:ml-6 mt-2 md:mt-0">
-                            <a href="{{ url('/premium') }}" class="hover:text-gray-300">Contenido Premium</a>
+                            <a href="{{ url('/videosPremium/index') }}" class="hover:text-gray-300">Contenido Premium</a>
                         </li>
 
                         @endif
@@ -57,7 +57,7 @@
                             <div class="top-0 right-0 px-6 py-4 sm:block">
                                 @auth                                     
 
-                                     <div class="hidden sm:flex sm:items-center sm:ml-6 ">
+                                     <div class=" sm:flex sm:items-center sm:ml-6 ">
                                         <x-dropdown align="right" width="48">
                                             <x-slot name="trigger">
                                                 <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-mdborder-b border-gray-800 text-white focus:outline-none transition ease-in-out duration-150">
@@ -75,7 +75,7 @@
                                                 <x-dropdown-link :href="route('profile.edit')">
                                                     {{ __('Perfil') }}
                                                 </x-dropdown-link>
-                                                @if(Auth::user()->hasRole('premium'))
+                                                @if(Auth::user()->hasRole('premium') && !Auth::user()->hasRole('admin'))
                                                 <x-dropdown-link :href="route('subscriptions.all')">
                                                     {{ __('Mi subscripcion') }}
                                                 </x-dropdown-link>
@@ -85,6 +85,11 @@
                                                 </x-dropdown-link>
                                                 @endif
 
+                                                @if(Auth::user()->hasRole('admin'))
+                                                    <x-dropdown-link :href="route('admin.index')">
+                                                        {{ __('Administrador') }}
+                                                    </x-dropdown-link>
+                                                @endif
                                                 <!-- Authentication -->
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf

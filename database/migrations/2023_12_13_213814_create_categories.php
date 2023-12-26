@@ -48,6 +48,17 @@ return new class extends Migration
             'cat_description' => "Cinematic universe",
             ]
         );
+
+        $eSports = Category::create([
+            'cat_name' => "E-Sports",
+            'cat_description' => "Competitivo de videojuegos",
+            ]
+        );
+        $videos = Category::create([
+            'cat_name' => "Video",
+            'cat_description' => "Nuevo contenido",
+            ]
+        );
     }
 
     /**

@@ -25,8 +25,7 @@
                         
                         <div class=" text-white text-center font-medium text-2xl mt-1  dark:bg-gray-700 rounded-md" > 
                             <label for="topic_subject" class="block font-medium text-sm text-gray-100">{{$topic['topic_category_name']}}</label>
-                            <br>
-                            <p>{{ $topic['topic_subject'] }}</p>
+                            <p class="text-base mt-2 pb-2">{{ $topic['topic_subject'] }}</p>
                         </div>    
                         </a>
                     </div>

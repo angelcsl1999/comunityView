@@ -15,4 +15,5 @@ class Topic extends Model
 
     ];
 
+    
 }
